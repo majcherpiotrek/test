@@ -1,6 +1,6 @@
 package com.ksm.robolo.roboloapp.services;
 
-import com.ksm.robolo.roboloapp.models.Project;
+import com.ksm.robolo.roboloapp.dto.Project;
 
 import java.util.List;
 

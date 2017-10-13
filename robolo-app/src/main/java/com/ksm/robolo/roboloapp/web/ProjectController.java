@@ -1,6 +1,6 @@
 package com.ksm.robolo.roboloapp.web;
 
-import com.ksm.robolo.roboloapp.models.Project;
+import com.ksm.robolo.roboloapp.dto.Project;
 import com.ksm.robolo.roboloapp.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.ksm.robolo.roboloapp.models;
+package com.ksm.robolo.roboloapp.dto;
 
 import java.util.Date;
 import java.util.Set;
@@ -11,7 +11,7 @@ public class Project {
 
     private Date startDate;
 
-    private Address address;
+    private AddressDTO addressDTO;
 
     private Client client;
 
@@ -45,12 +45,12 @@ public class Project {
         this.startDate = startDate;
     }
 
-    public Address getAddress() {
-        return address;
+    public AddressDTO getAddressDTO() {
+        return addressDTO;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressDTO(AddressDTO addressDTO) {
+        this.addressDTO = addressDTO;
     }
 
     public Client getClient() {
