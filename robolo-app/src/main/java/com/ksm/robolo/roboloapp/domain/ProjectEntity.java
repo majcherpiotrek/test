@@ -1,18 +1,9 @@
 package com.ksm.robolo.roboloapp.domain;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -39,7 +30,7 @@ public class ProjectEntity {
 	private ClientEntity client;
 	
 	@ManyToMany(targetEntity = WorkerEntity.class)
-	private Set<WorkerEntity> workers;
+	private List<WorkerEntity> workers;
 
 	public Long getId() {
 		return id;
@@ -81,11 +72,11 @@ public class ProjectEntity {
 		this.client = client;
 	}
 
-	public Set<WorkerEntity> getWorkers() {
+	public List<WorkerEntity> getWorkers() {
 		return workers;
 	}
 
-	public void setWorkers(Set<WorkerEntity> workers) {
+	public void setWorkers(List<WorkerEntity> workers) {
 		this.workers = workers;
 	}
 

@@ -1,20 +1,9 @@
 package com.ksm.robolo.roboloapp.domain;
 
-import java.time.Period;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.ksm.robolo.roboloapp.enums.TaskStatus;
 
@@ -29,13 +18,13 @@ public class TaskEntity {
 	private String description;
 	
 	private Integer estimatedTaskDuration;
-	
-	@ManyToMany(targetEntity = WorkerEntity.class)
-	private Set<WorkerEntity> workersSet;
-	
+
 	@ManyToOne
 	private ProjectEntity project;
-	
+
+	@ManyToMany(targetEntity = WorkerEntity.class)
+	private List<WorkerEntity> workers;
+
 	@Temporal(TemporalType.DATE)
 	private Date creationDate;
 	
@@ -71,20 +60,20 @@ public class TaskEntity {
 		this.estimatedTaskDuration = estimatedTaskDuration;
 	}
 
-	public Set<WorkerEntity> getWorkersSet() {
-		return workersSet;
-	}
-
-	public void setWorkersSet(Set<WorkerEntity> workersSet) {
-		this.workersSet = workersSet;
-	}
-
 	public ProjectEntity getProject() {
 		return project;
 	}
 
 	public void setProject(ProjectEntity project) {
 		this.project = project;
+	}
+
+	public List<WorkerEntity> getWorkers() {
+		return workers;
+	}
+
+	public void setWorkers(List<WorkerEntity> workers) {
+		this.workers = workers;
 	}
 
 	public Date getCreationDate() {

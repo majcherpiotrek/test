@@ -1,10 +1,8 @@
 package com.ksm.robolo.roboloapp.tos;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
-public class ProjectTO {
+public class ProjectStubTO {
 
     private Long id;
 
@@ -15,12 +13,6 @@ public class ProjectTO {
     private AddressTO addressTO;
 
     private ClientTO clientTO;
-
-    private List<WorkerTO> workerTOS;
-
-    private List<TaskTO> taskTOS;
-
-    private Date approximateEndDate;
 
     public Long getId() {
         return id;
@@ -60,29 +52,5 @@ public class ProjectTO {
 
     public void setClientTO(ClientTO clientTO) {
         this.clientTO = clientTO;
-    }
-
-    public List<WorkerTO> getWorkerTOS() {
-        return workerTOS;
-    }
-
-    public void setWorkerTOS(List<WorkerTO> workerTOS) {
-        this.workerTOS = workerTOS;
-    }
-
-    public List<TaskTO> getTaskTOS() {
-        return taskTOS;
-    }
-
-    public void setTaskTOS(List<TaskTO> taskTOS) {
-        this.taskTOS = taskTOS;
-    }
-
-    public Date getApproximateEndDate() {
-        return approximateEndDate;
-    }
-
-    public void setApproximateEndDate(Date approximateEndDate) {
-        this.approximateEndDate = approximateEndDate;
     }
 }
