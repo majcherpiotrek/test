@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Projects")
@@ -21,15 +22,19 @@ public class ProjectEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
+	@NotNull
 	private String projectName;
-	
+
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
-	
+
+	@NotNull
 	@OneToOne
 	private AddressEntity address;
-	
+
+	@NotNull
 	@ManyToOne
 	private ClientEntity client;
 	
@@ -82,5 +87,27 @@ public class ProjectEntity {
 
 	public void setWorkers(Set<WorkerEntity> workers) {
 		this.workers = workers;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof ProjectEntity)) return false;
+
+		ProjectEntity that = (ProjectEntity) o;
+
+		if (!getProjectName().equals(that.getProjectName())) return false;
+		if (!getStartDate().equals(that.getStartDate())) return false;
+		if (!getAddress().equals(that.getAddress())) return false;
+		return getClient().equals(that.getClient());
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getProjectName().hashCode();
+		result = 31 * result + getStartDate().hashCode();
+		result = 31 * result + getAddress().hashCode();
+		result = 31 * result + getClient().hashCode();
+		return result;
 	}
 }

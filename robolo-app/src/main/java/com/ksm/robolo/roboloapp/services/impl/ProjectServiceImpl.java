@@ -1,7 +1,7 @@
 package com.ksm.robolo.roboloapp.services.impl;
 
 import com.ksm.robolo.roboloapp.domain.ProjectEntity;
-import com.ksm.robolo.roboloapp.dto.Project;
+import com.ksm.robolo.roboloapp.tos.ProjectTO;
 import com.ksm.robolo.roboloapp.repository.ProjectRepository;
 import com.ksm.robolo.roboloapp.services.ProjectService;
 import org.apache.log4j.Logger;
@@ -24,24 +24,24 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
-    public List<Project> getAllProjects() {
+    public List<ProjectTO> getAllProjects() {
         logger.info("get all projects called");
         List<ProjectEntity> projectEntityList = projectRepository.findAll();
-        List<Project> projectList = new LinkedList<>();
+        List<ProjectTO> projectTOList = new LinkedList<>();
 
         for (ProjectEntity projectEntity : projectEntityList) {
-            projectList.add(convertProjectEntityToModel(projectEntity));
+            projectTOList.add(convertProjectEntityToModel(projectEntity));
         }
 
-        return projectList;
+        return projectTOList;
     }
 
-    private Project convertProjectEntityToModel(ProjectEntity projectEntity) {
-        Project project = new Project();
-        project.setId(projectEntity.getId());
-        project.setProjectName(projectEntity.getProjectName());
+    private ProjectTO convertProjectEntityToModel(ProjectEntity projectEntity) {
+        ProjectTO projectTO = new ProjectTO();
+        projectTO.setId(projectEntity.getId());
+        projectTO.setProjectName(projectEntity.getProjectName());
 
         //TODO complete the converter
-        return project;
+        return projectTO;
     }
 }

@@ -1,9 +1,9 @@
-package com.ksm.robolo.roboloapp.dto;
+package com.ksm.robolo.roboloapp.tos;
 
 import java.util.Date;
 import java.util.Set;
 
-public class Project {
+public class ProjectTO {
 
     private Long id;
 
@@ -11,13 +11,13 @@ public class Project {
 
     private Date startDate;
 
-    private AddressDTO addressDTO;
+    private AddressTO addressTO;
 
-    private Client client;
+    private ClientTO clientTO;
 
-    private Set<Worker> workers;
+    private Set<WorkerTO> workerTOS;
 
-    private Set<Task> tasks;
+    private Set<TaskTO> taskTOS;
 
     private Date approximateEndDate;
 
@@ -45,36 +45,36 @@ public class Project {
         this.startDate = startDate;
     }
 
-    public AddressDTO getAddressDTO() {
-        return addressDTO;
+    public AddressTO getAddressTO() {
+        return addressTO;
     }
 
-    public void setAddressDTO(AddressDTO addressDTO) {
-        this.addressDTO = addressDTO;
+    public void setAddressTO(AddressTO addressTO) {
+        this.addressTO = addressTO;
     }
 
-    public Client getClient() {
-        return client;
+    public ClientTO getClientTO() {
+        return clientTO;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientTO(ClientTO clientTO) {
+        this.clientTO = clientTO;
     }
 
-    public Set<Worker> getWorkers() {
-        return workers;
+    public Set<WorkerTO> getWorkerTOS() {
+        return workerTOS;
     }
 
-    public void setWorkers(Set<Worker> workers) {
-        this.workers = workers;
+    public void setWorkerTOS(Set<WorkerTO> workerTOS) {
+        this.workerTOS = workerTOS;
     }
 
-    public Set<Task> getTasks() {
-        return tasks;
+    public Set<TaskTO> getTaskTOS() {
+        return taskTOS;
     }
 
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
+    public void setTaskTOS(Set<TaskTO> taskTOS) {
+        this.taskTOS = taskTOS;
     }
 
     public Date getApproximateEndDate() {

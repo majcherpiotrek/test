@@ -15,9 +15,6 @@ public class TaskItemEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToOne
-	private TaskEntity task;
-	
 	private Integer quantity;
 	
 	private String description;
@@ -30,14 +27,6 @@ public class TaskItemEntity {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public TaskEntity getTask() {
-		return task;
-	}
-
-	public void setTask(TaskEntity task) {
-		this.task = task;
 	}
 
 	public Integer getQuantity() {
