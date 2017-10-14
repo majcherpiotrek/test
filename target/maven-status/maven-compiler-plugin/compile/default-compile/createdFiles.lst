@@ -1,0 +1,8 @@
+com\ksm\robolo\roboloapp\tos\TaskTO.class
+com\ksm\robolo\roboloapp\tos\AddressTO.class
+Main.class
+com\ksm\robolo\roboloapp\tos\WorkerTO.class
+com\ksm\robolo\roboloapp\tos\ClientTO.class
+com\ksm\robolo\roboloapp\tos\ProjectTO.class
+com\ksm\robolo\roboloapp\tos\TaskItemTO.class
+com\ksm\robolo\roboloapp\tos\UserTO.class
