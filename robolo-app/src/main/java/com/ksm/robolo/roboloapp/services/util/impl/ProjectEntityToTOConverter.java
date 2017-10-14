@@ -12,12 +12,10 @@ import java.util.List;
 
 public class ProjectEntityToTOConverter implements EntityToTOConverter<ProjectTO, ProjectEntity>{
 
-    private AddressEntityToTOConverter adddressConverter;
     private ClientToTOConverter clientConverter;
     private WorkerToTOConverter workerConverter;
 
     public ProjectEntityToTOConverter() {
-        adddressConverter = new AddressEntityToTOConverter();
         clientConverter = new ClientToTOConverter();
         workerConverter = new WorkerToTOConverter();
     }
@@ -34,9 +32,7 @@ public class ProjectEntityToTOConverter implements EntityToTOConverter<ProjectTO
         projectTO.setId(entity.getId());
         projectTO.setProjectName(entity.getProjectName());
         projectTO.setStartDate(entity.getStartDate());
-
-        AddressTO addressTO = adddressConverter.convertToTO(entity.getAddress());
-        projectTO.setAddressTO(addressTO);
+        projectTO.setAddressTO(entity.getAddress());
 
         ClientTO clientTO = clientConverter.convertToTO(entity.getClient());
         projectTO.setClientTO(clientTO);
@@ -54,7 +50,6 @@ public class ProjectEntityToTOConverter implements EntityToTOConverter<ProjectTO
         for (ProjectEntity projectEntity : entityList) {
             projectTOList.add(convertToTO(projectEntity));
         }
-
         return projectTOList;
     }
 

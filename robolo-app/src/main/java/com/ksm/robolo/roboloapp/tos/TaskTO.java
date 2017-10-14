@@ -1,5 +1,6 @@
 package com.ksm.robolo.roboloapp.tos;
 
+import com.ksm.robolo.roboloapp.domain.TaskItemEntity;
 import com.ksm.robolo.roboloapp.enums.TaskStatus;
 
 import java.util.Date;
@@ -21,7 +22,7 @@ public class TaskTO {
 
     private TaskStatus status;
 
-    private List<TaskItemTO> taskItems;
+    private List<TaskItemEntity> taskItems;
 
     public Long getId() {
         return id;
@@ -79,11 +80,11 @@ public class TaskTO {
         this.status = status;
     }
 
-    public List<TaskItemTO> getTaskItems() {
+    public List<TaskItemEntity> getTaskItems() {
         return taskItems;
     }
 
-    public void setTaskItems(List<TaskItemTO> taskItems) {
+    public void setTaskItems(List<TaskItemEntity> taskItems) {
         this.taskItems = taskItems;
     }
 }

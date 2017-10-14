@@ -23,6 +23,7 @@ public class ClientToTOConverter implements EntityToTOConverter<ClientTO, Client
 
     @Override
     public List<ClientTO> convertListToTOList(List<ClientEntity> entityList) {
+        // TODO implement
         return null;
     }
 }

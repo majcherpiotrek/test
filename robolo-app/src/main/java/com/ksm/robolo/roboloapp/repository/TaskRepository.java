@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface TaskRepository extends CrudRepository<TaskEntity, Long> {
 
-    List<TaskEntity> findByProject(ProjectEntity project);
+    List<TaskEntity> findByProject_Id(Long id);
 }

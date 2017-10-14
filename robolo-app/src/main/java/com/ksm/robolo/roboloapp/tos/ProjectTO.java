@@ -1,5 +1,7 @@
 package com.ksm.robolo.roboloapp.tos;
 
+import com.ksm.robolo.roboloapp.domain.AddressEntity;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -12,7 +14,7 @@ public class ProjectTO {
 
     private Date startDate;
 
-    private AddressTO addressTO;
+    private AddressEntity addressTO;
 
     private ClientTO clientTO;
 
@@ -46,11 +48,11 @@ public class ProjectTO {
         this.startDate = startDate;
     }
 
-    public AddressTO getAddressTO() {
+    public AddressEntity getAddressTO() {
         return addressTO;
     }
 
-    public void setAddressTO(AddressTO addressTO) {
+    public void setAddressTO(AddressEntity addressTO) {
         this.addressTO = addressTO;
     }
 

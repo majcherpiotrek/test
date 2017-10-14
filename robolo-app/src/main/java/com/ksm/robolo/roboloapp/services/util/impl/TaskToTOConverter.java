@@ -2,12 +2,11 @@ package com.ksm.robolo.roboloapp.services.util.impl;
 
 
 import com.ksm.robolo.roboloapp.domain.TaskEntity;
-import com.ksm.robolo.roboloapp.domain.TaskItemEntity;
 import com.ksm.robolo.roboloapp.domain.WorkerEntity;
 import com.ksm.robolo.roboloapp.services.util.EntityToTOConverter;
-import com.ksm.robolo.roboloapp.tos.TaskItemTO;
 import com.ksm.robolo.roboloapp.tos.TaskTO;
 import com.ksm.robolo.roboloapp.tos.WorkerTO;
+import org.springframework.util.Assert;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,11 +14,9 @@ import java.util.List;
 public class TaskToTOConverter implements EntityToTOConverter<TaskTO, TaskEntity>{
 
     private WorkerToTOConverter workerConverter;
-    private TaskItemEntityToTOConverter taskItemConverter;
 
     public TaskToTOConverter() {
         workerConverter = new WorkerToTOConverter();
-        taskItemConverter = new TaskItemEntityToTOConverter();
     }
     @Override
     public TaskTO convertToTO(TaskEntity entity) {
@@ -31,16 +28,20 @@ public class TaskToTOConverter implements EntityToTOConverter<TaskTO, TaskEntity
         taskTO.setStartDate(entity.getStartDate());
         taskTO.setStatus(entity.getStatus());
 
-        taskTO.setTaskItems(getTaskItemTOsFromTaskEntity(entity));
+        taskTO.setTaskItems(entity.getTaskItems());
         taskTO.setWorkers(getWorkerTOsFromTaskEntity(entity));
-
 
         return taskTO;
     }
 
     @Override
     public List<TaskTO> convertListToTOList(List<TaskEntity> entityList) {
-        return null;
+        Assert.notNull(entityList, NULL_ARGUMENT_ERROR);
+        List<TaskTO> taskTOList = new LinkedList<>();
+        for (TaskEntity taskEntity : entityList) {
+            taskTOList.add(convertToTO(taskEntity));
+        }
+        return taskTOList;
     }
 
     private List<WorkerTO> getWorkerTOsFromTaskEntity(TaskEntity entity) {
@@ -50,14 +51,5 @@ public class TaskToTOConverter implements EntityToTOConverter<TaskTO, TaskEntity
             workerTOS.add(workerTO);
         }
         return workerTOS;
-    }
-
-    private List<TaskItemTO> getTaskItemTOsFromTaskEntity(TaskEntity entity) {
-        List<TaskItemTO> taskItemTOs = new LinkedList<>();
-        for (TaskItemEntity taskItemEntity : entity.getTaskItems()) {
-            TaskItemTO taskItemTO = taskItemConverter.convertToTO(taskItemEntity);
-            taskItemTOs.add(taskItemTO);
-        }
-        return taskItemTOs;
     }
 }
